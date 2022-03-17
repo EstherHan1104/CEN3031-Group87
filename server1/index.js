@@ -8,7 +8,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://zhen:04242002@cluster0.9morv.mongodb.net/social?");
+mongoose.connect("mongodb+srv://<username>:<password>@cluster0.9morv.mongodb.net/<mongodb file name>?");
 
 app.get("/getUsers", (req, res) => 
 {
