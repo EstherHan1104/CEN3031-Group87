@@ -1,0 +1,53 @@
+.main {
+    background-image: url('../images/loginbackground.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+div.form {
+    display: block;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 70px;
+    width: 500px;
+    margin-top: 250px;
+    border-radius: 10px;
+}
+
+.form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.3)
+}
+
+#logintitle {
+    padding-bottom: 20px;
+    color: white;
+}
+
+#inputbox {
+    height: 50px;
+    width: 300px;
+    text-align: center;
+    background: #c8c8c8;
+    font-size: 18px;
+    border-style: hidden;
+    border-radius: 10px;
+    opacity: 0.75;
+}
+
+::placeholder {
+    color: white;
+}
+
+.form-register {
+    margin-top: 30px;
+    margin-top: 50px;
+}
+
+.inline {
+    display: inline;
+}
