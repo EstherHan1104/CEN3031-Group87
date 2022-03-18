@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import '../../css/Login.css';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
+import axios from 'axios';
 
 export default class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      username: '',
       password: ''
     };
 
@@ -20,15 +20,32 @@ export default class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
+
+    axios.post('http://localhost:5000/users/', {
+      email: this.state.email,
+      password: this.state.password
+    })
+      .then(res => {
+        console.log(res.data);
+        
+        if (res.data.success) {
+          localStorage.setItem('token', res.data.user)
+          window.location = '/dashboard';
+        }
+        else {
+          window.location = '/';
+        }
+      })
+      .catch(e => console.error(e))
   }
 
   render() {
     return (
         <div className="form">
             <h1 id="logintitle">Login</h1><br/>
-            <form>
+            <form onSubmit={this.onSubmit}>
                 <input type="text" name="email" placeholder="Email" id="inputbox"
                   onChange={this.onChange}/>
                 <br/><br/>

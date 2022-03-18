@@ -1,18 +1,38 @@
 const router = require('express').Router();
-let User = require('../models/User');
+const User = require('../models/User');
+const jwt = require('jsonwebtoken');
 
-router.route('/').get((req, res) => {
-    User.find()
-        .then(users => res.json(users))
-        .catch(err => res.status(400).json('Error: ' + err));
+
+router.route('/').post((req, res) => {
+    User.findOne(req.body)
+        .then(result => { 
+            if (result) {            
+                const token = jwt.sign({
+                    email: req.body.email,
+                    password: req.body.password
+                },  'jwtsecret')
+
+                res.json({ success: true , user: token});
+            }
+            else {
+                res.json({ success: false});
+            }
+
+            return result; 
+        })
+        .catch(err => console.error(`Failed to find: ${err}`));
+        
 });
 
 router.route('/add').post((req, res) => {
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
+    const isTeacher = req.body.isTeacher;
 
-    const newUser = new User({ username, email, password })
+    const newUser = new User({ firstName, lastName, username, email, password, isTeacher })
 
     newUser.save()
         .then(() => res.json('User added!'))
