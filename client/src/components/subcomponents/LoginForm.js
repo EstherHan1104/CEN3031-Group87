@@ -7,13 +7,16 @@ import axios from 'axios';
 export default class LoginForm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      showError: false
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.ErrorMessage = this.ErrorMessage.bind(this);
   }
 
   onChange(e) {
@@ -23,6 +26,7 @@ export default class LoginForm extends Component {
   async onSubmit(e) {
     e.preventDefault();
 
+    // send request to db
     axios.post('http://localhost:5000/users/', {
       email: this.state.email,
       password: this.state.password
@@ -31,25 +35,45 @@ export default class LoginForm extends Component {
         console.log(res.data);
         
         if (res.data.success) {
-          localStorage.setItem('token', res.data.user)
+          localStorage.setItem('token', res.data.user);
           window.location = '/dashboard';
         }
         else {
-          window.location = '/';
+          this.setState({ showError: true });
         }
       })
       .catch(e => console.error(e))
   }
+  
+  // return error message
+  ErrorMessage() {
+    return (
+      <div className="error">
+        <p>Incorrect username or password. Please try again.</p>
+      </div>
+    )
+  }
 
   render() {
+    const showError = this.state.showError;
+    let error;
+    
+    if (showError) {
+      error = <this.ErrorMessage/>
+    }
+    else {
+      error = null;
+    }
+
     return (
         <div className="form">
             <h1 id="logintitle">Login</h1><br/>
+            {error}
             <form onSubmit={this.onSubmit}>
                 <input type="text" name="email" placeholder="Email" id="inputbox"
                   onChange={this.onChange}/>
                 <br/><br/>
-                <input type="text" name="password" placeholder="Password" id="inputbox"
+                <input type="password" name="password" placeholder="Password" id="inputbox"
                   onChange={this.onChange}/>
                 <br/><br/><br/>
                 <Button type="submit" name="submit">Submit</Button>

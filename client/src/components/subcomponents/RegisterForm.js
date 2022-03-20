@@ -13,12 +13,14 @@ export default class RegisterForm extends Component {
             username: '',
             email: '',
             password: '',
-            isTeacher: false
+            isTeacher: false,
+            error: ''
         }
 
         this.onChange = this.onChange.bind(this);
         this.onClick = this.onClick.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.ErrorMessage = this.ErrorMessage.bind(this);
     }
 
     onChange(e) {
@@ -29,7 +31,7 @@ export default class RegisterForm extends Component {
         this.setState({ isTeacher: !this.state.isTeacher })
     }
 
-    onSubmit(e) {
+    onSubmit(e) { 
         e.preventDefault();
 
         const user = {
@@ -41,16 +43,36 @@ export default class RegisterForm extends Component {
             isTeacher: this.state.isTeacher
         }
 
-        axios.post('http://localhost:5000/users/add', user)
-            .then(res => console.log(res.data));
-
-        window.location = '/';
+        // send request to db
+        axios.post('http://localhost:5000/users/add', user) 
+            .then(res => {
+                // assign error status
+                this.setState({ error: res.data.error })
+                if (res.data.error === '') {
+                    window.location = '/'
+                }
+            });
     }
+
+    // return error message to be rendered
+    ErrorMessage() {
+        if (this.state.error === 'USER_EXISTS') {
+            return (
+                <div className="error">
+                    <p>User with this email already exists. Try logging in.</p>
+                </div>
+            );
+        }
+        else {
+            return null;
+        }
+      }
 
     render() {
         return (
             <div className="form">
             <h1 id="logintitle">Register</h1><br/>
+            {<this.ErrorMessage/>}
             <form onSubmit={this.onSubmit}>
                 <div>
                     <input type="text" name="firstName" placeholder="First Name" id="inputboxinline"
