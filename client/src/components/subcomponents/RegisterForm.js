@@ -47,16 +47,34 @@ export default class RegisterForm extends Component {
         axios.post('http://localhost:5000/users/add', user) 
             .then(res => {
                 // assign error status
+               
                 this.setState({ error: res.data.error })
-                if (res.data.error === '') {
-                    window.location = '/'
+                     
+                if (!this.state.error) {
+                    window.location = '/login'
                 }
             });
+
+        
     }
 
     // return error message to be rendered
     ErrorMessage() {
-        if (this.state.error === 'USER_EXISTS') {
+        if (this.state.error === 'EMPTY_FIELD') {
+            return (
+                <div className="error">
+                    <p>At least one field is empty. Please fill out all fields.</p>
+                </div>
+            );
+        }
+        else if (this.state.error === 'INVALID_EMAIL') {
+            return (
+                <div className="error">
+                    <p>Email does not contain '@'. Please input valid email.</p>
+                </div>
+            )
+        }
+        else if (this.state.error === 'USER_EXISTS') {
             return (
                 <div className="error">
                     <p>User with this email already exists. Try logging in.</p>
@@ -75,19 +93,19 @@ export default class RegisterForm extends Component {
             {<this.ErrorMessage/>}
             <form onSubmit={this.onSubmit}>
                 <div>
-                    <input type="text" name="firstName" placeholder="First Name" id="inputboxinline"
+                    <input type="text" name="firstName" placeholder="First Name" id="inputboxinline1"
                     onChange={this.onChange}/>
-                    <input type="text" name="lastName" placeholder="Last Name" id="inputboxinline"
+                    <input type="text" name="lastName" placeholder="Last Name" id="inputboxinline2"
                     onChange={this.onChange}/>
                 </div>
                 <br/>
-                <input type="text" name="username" placeholder="Username" id="inputbox"
+                <input type="text" name="username" placeholder="Username" id="inputbox1"
                 onChange={this.onChange}/>
                 <br/><br/>
-                <input type="text" name="email" placeholder="Email" id="inputbox"
+                <input type="text" name="email" placeholder="Email" id="inputbox2"
                 onChange={this.onChange}/>
                 <br/><br/>
-                <input type="password" name="password" placeholder="Password" id="inputbox"
+                <input type="password" name="password" placeholder="Password" id="inputbox3"
                 onChange={this.onChange}/>
                 <br/><br/>
                 <input type="checkbox" onClick={this.onClick}/>    

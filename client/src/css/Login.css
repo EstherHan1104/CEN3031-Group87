@@ -28,7 +28,7 @@ div.form {
     color: white;
 }
 
-#inputboxinline {
+#inputboxinline1 {
     display: inline-block;
     height: 50px;
     width: 145px;
@@ -42,7 +42,43 @@ div.form {
     margin-left: 5px;
 }
 
-#inputbox {
+#inputboxinline2 {
+    display: inline-block;
+    height: 50px;
+    width: 145px;
+    text-align: center;
+    background: #c8c8c8;
+    font-size: 18px;
+    border-style: hidden;
+    border-radius: 10px;
+    opacity: 0.75;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#inputbox1 {
+    height: 50px;
+    width: 300px;
+    text-align: center;
+    background: #c8c8c8;
+    font-size: 18px;
+    border-style: hidden;
+    border-radius: 10px;
+    opacity: 0.75;
+}
+
+#inputbox2 {
+    height: 50px;
+    width: 300px;
+    text-align: center;
+    background: #c8c8c8;
+    font-size: 18px;
+    border-style: hidden;
+    border-radius: 10px;
+    opacity: 0.75;
+}
+
+#inputbox3 {
     height: 50px;
     width: 300px;
     text-align: center;

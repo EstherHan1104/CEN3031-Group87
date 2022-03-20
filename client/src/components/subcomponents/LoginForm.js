@@ -47,33 +47,27 @@ export default class LoginForm extends Component {
   
   // return error message
   ErrorMessage() {
-    return (
-      <div className="error">
-        <p>Incorrect username or password. Please try again.</p>
-      </div>
-    )
+    if (this.state.showError) {
+      return (
+        <div className="error">
+          <p>Incorrect username or password. Please try again.</p>
+        </div>
+      );
+    }
+    else 
+      return null;
   }
 
   render() {
-    const showError = this.state.showError;
-    let error;
-    
-    if (showError) {
-      error = <this.ErrorMessage/>
-    }
-    else {
-      error = null;
-    }
-
     return (
         <div className="form">
             <h1 id="logintitle">Login</h1><br/>
-            {error}
+            {<this.ErrorMessage/>}
             <form onSubmit={this.onSubmit}>
-                <input type="text" name="email" placeholder="Email" id="inputbox"
+                <input type="text" name="email" placeholder="Email" id="inputbox1"
                   onChange={this.onChange}/>
                 <br/><br/>
-                <input type="password" name="password" placeholder="Password" id="inputbox"
+                <input type="password" name="password" placeholder="Password" id="inputbox2"
                   onChange={this.onChange}/>
                 <br/><br/><br/>
                 <Button type="submit" name="submit">Submit</Button>

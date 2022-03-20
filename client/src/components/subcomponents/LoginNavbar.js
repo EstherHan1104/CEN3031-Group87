@@ -13,7 +13,7 @@ class LoginNavbar extends Component {
     render() {
         return (
             <nav className="NavbarItems">
-                <Link className="nav-home" to="/">SmartyPants</Link>
+                <Link className="nav-home" to="/login">SmartyPants</Link>
                 <ul className={this.state.isOpen ? 'nav-menu active' : 'nav-menu'}>
                     {Buttons.map((item, index) => {
                         return(

@@ -28,17 +28,24 @@ router.route('/').post((req, res) => {
 router.route('/add').post((req, res) => {
     User.findOne({ email: req.body.email })
         .then(user => {
-            if (user) {
+            const firstName = req.body.firstName;
+            const lastName = req.body.lastName;
+            const username = req.body.username;
+            const email = req.body.email;
+            const password = req.body.password;
+            const isTeacher = req.body.isTeacher;
+
+            if (!firstName || !lastName || !username
+                || !email || !password) {
+                    res.json({ error: 'EMPTY_FIELD' });
+            }
+            else if (!email.includes('@')) {
+                res.json({ error: 'INVALID_EMAIL' });
+            }
+            else if (user) {
                 res.json({ error: 'USER_EXISTS' });
             }
             else {
-                const firstName = req.body.firstName;
-                const lastName = req.body.lastName;
-                const username = req.body.username;
-                const email = req.body.email;
-                const password = req.body.password;
-                const isTeacher = req.body.isTeacher;
-
                 const newUser = new User({ firstName, lastName, username, email, password, isTeacher })
 
                 newUser.save()
