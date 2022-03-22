@@ -18,9 +18,10 @@ class LoginNavbar extends Component {
                     {Buttons.map((item, index) => {
                         return(
                             <li key={index}>
-                                <Link className={item.cName} to={item.url}>
+                                <a className={item.cName} href={item.url} 
+                                 target={item.title === 'Github' ? '_blank' : ''}>
                                     {item.title}    
-                                </Link>
+                                </a>
                             </li>
                         )
                     })}                 

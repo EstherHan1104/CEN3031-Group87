@@ -15,7 +15,7 @@ export default class AboutText extends Component {
                     encourages learning by offering a vibrant but competetive environment and ensuring that
                     hard work and effort is rewarded and not ignored. 
                 </p>
-                <br/><br/><br/>
+                <br/><br/>
                 <p style={{fontSize: '25px', color: 'white'}}>
                     &emsp;SmartyPants was created by Zhuoming Han, DeShaune Jean-Charles, Zhen Wu, and Syed Hasan,
                     students at the University of Florida. We believe that the education system can be bettered by encouraging 
