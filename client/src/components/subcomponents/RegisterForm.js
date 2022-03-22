@@ -34,6 +34,7 @@ export default class RegisterForm extends Component {
     onSubmit(e) { 
         e.preventDefault();
 
+        //create user
         const user = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -53,11 +54,9 @@ export default class RegisterForm extends Component {
                 if (!this.state.error) {
                     window.location = '/login'
                 }
-            });
-
-        
-    }
-
+            });        
+    }   
+    
     // return error message to be rendered
     ErrorMessage() {
         if (this.state.error === 'EMPTY_FIELD') {

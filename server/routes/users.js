@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const bcryptjs = require('bcryptjs');
 
 // post request to find 
 router.route('/').post((req, res) => {
-    User.findOne(req.body)
-        .then(result => { 
-            if (result) {            
+    User.findOne({ email: req.body.email })
+        .then(user => { 
+            if (user && bcryptjs.compareSync(req.body.password, user.password)) {            
                 const token = jwt.sign({
                     email: req.body.email,
                     password: req.body.password
@@ -17,8 +18,6 @@ router.route('/').post((req, res) => {
             else {
                 res.json({ success: false});
             }
-
-            return result; 
         })
         .catch(err => console.error(`Failed to find: ${err}`));
         
@@ -32,11 +31,12 @@ router.route('/add').post((req, res) => {
             const lastName = req.body.lastName;
             const username = req.body.username;
             const email = req.body.email;
-            const password = req.body.password;
+            const pw = req.body.password;
             const isTeacher = req.body.isTeacher;
 
+            // check for error
             if (!firstName || !lastName || !username
-                || !email || !password) {
+                || !email || !pw) {
                     res.json({ error: 'EMPTY_FIELD' });
             }
             else if (!email.includes('@')) {
@@ -46,6 +46,10 @@ router.route('/add').post((req, res) => {
                 res.json({ error: 'USER_EXISTS' });
             }
             else {
+                // hash password
+                const salt = bcryptjs.genSaltSync(10);
+                const password = bcryptjs.hashSync(pw, salt);
+
                 const newUser = new User({ firstName, lastName, username, email, password, isTeacher })
 
                 newUser.save()

@@ -23,7 +23,7 @@ export default class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  async onSubmit(e) {
+  onSubmit(e) {
     e.preventDefault();
 
     // send request to db
@@ -31,9 +31,7 @@ export default class LoginForm extends Component {
       email: this.state.email,
       password: this.state.password
     })
-      .then(res => {
-        console.log(res.data);
-        
+      .then(res => {   
         if (res.data.success) {
           localStorage.setItem('token', res.data.user);
           window.location = '/dashboard';
@@ -44,7 +42,7 @@ export default class LoginForm extends Component {
       })
       .catch(e => console.error(e))
   }
-  
+
   // return error message
   ErrorMessage() {
     if (this.state.showError) {
