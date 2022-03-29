@@ -34,6 +34,7 @@ export default class LoginForm extends Component {
       .then(res => {   
         if (res.data.success) {
           localStorage.setItem('token', res.data.user);
+          localStorage.setItem('email', this.state.email)
           window.location = '/dashboard';
         }
         else {

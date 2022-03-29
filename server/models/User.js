@@ -32,6 +32,9 @@ const UserSchema = new mongoose.Schema
         isTeacher: {
                 type: Boolean,
                 required: true,
+        },
+        courses: {
+                type: Array
         }
 });
 

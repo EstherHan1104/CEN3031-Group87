@@ -33,6 +33,7 @@ router.route('/add').post((req, res) => {
             const email = req.body.email;
             const pw = req.body.password;
             const isTeacher = req.body.isTeacher;
+            const courses = req.body.courses;
 
             // check for error
             if (!firstName || !lastName || !username
@@ -50,7 +51,7 @@ router.route('/add').post((req, res) => {
                 const salt = bcryptjs.genSaltSync(10);
                 const password = bcryptjs.hashSync(pw, salt);
 
-                const newUser = new User({ firstName, lastName, username, email, password, isTeacher })
+                const newUser = new User({ firstName, lastName, username, email, password, isTeacher, courses })
 
                 newUser.save()
                     .then(() => res.json({ error: '' }))

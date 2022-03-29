@@ -14,6 +14,7 @@ export default class RegisterForm extends Component {
             email: '',
             password: '',
             isTeacher: false,
+            courses: [],
             error: ''
         }
 
@@ -41,7 +42,8 @@ export default class RegisterForm extends Component {
             email: this.state.email,
             username: this.state.username,
             password: this.state.password,
-            isTeacher: this.state.isTeacher
+            isTeacher: this.state.isTeacher,
+            courses: this.state.courses
         }
 
         // send request to db
@@ -50,9 +52,9 @@ export default class RegisterForm extends Component {
                 // assign error status
                
                 this.setState({ error: res.data.error })
-                     
+                 
                 if (!this.state.error) {
-                    window.location = '/login'
+                    window.location = '/login';
                 }
             });        
     }   
