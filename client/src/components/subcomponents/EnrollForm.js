@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import UserContext from '../context/User';
 import { Button } from '../subcomponents/Button';
 import axios from 'axios';
+import '../../css/Login.css';
 
 export default class EnrollForm extends Component {
     constructor(props) {
@@ -34,15 +35,18 @@ export default class EnrollForm extends Component {
 
     render() {
         return (
-            <div className="form">
-                <h1 id="logintitle">Enroll</h1><br/>
-                <form onSubmit={this.onSubmit}>
-                    <input type="text" name="name" placeholder="Course Name" id="inputbox1"
-                    onChange={this.onChange}/>
+            <div>
+                <div className="form">
+                    <h1 id="logintitle">Enroll</h1>
                     <br/><br/>
-                    <Button type="submit" name="submit">Submit</Button>
-                </form>
-                <div className="form-register">
+                    <form onSubmit={this.onSubmit}>
+                        <input type="text" name="name" placeholder="Course Name" id="inputbox1"
+                        onChange={this.onChange}/>
+                        <br/><br/><br/>
+                        <div style={{paddingTop: '10px'}}>
+                            <Button type="submit" name="submit">Submit</Button>
+                        </div>
+                    </form>
                 </div>
             </div>
         )

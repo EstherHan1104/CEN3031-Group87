@@ -111,7 +111,7 @@ export default class RegisterForm extends Component {
                 <br/><br/>
                 <input type="checkbox" onClick={this.onClick}/>    
                 <label style={{color: 'white', fontSize: '19px'}}> I am a Teacher</label>
-                <br/><br/><br/>            
+                <br/><br/><br/>           
                 <Button type="submit" name="submit">Submit</Button>
             </form>
         </div>

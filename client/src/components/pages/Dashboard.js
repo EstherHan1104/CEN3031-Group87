@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { decodeToken } from 'react-jwt';
 import axios from 'axios';
+import DashNavbar from '../subcomponents/DashNavbar';
+import Dash from '../subcomponents/Dash';
 
 const Dashboard = () => {
     const history = useNavigate();
@@ -29,7 +31,10 @@ const Dashboard = () => {
     })
 
   return (
-    <div>Dashboard</div>
+    <div className="main">
+        <DashNavbar/>
+        <Dash/>
+    </div>
   )
 }
 

@@ -4,8 +4,11 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Dashboard from './components/pages/Dashboard';
-//import Enroll from './components/pages/Enroll';
+import Enroll from './components/pages/Enroll';
 import About from './components/pages/About';
+import Leaderboard from './components/pages/Leaderboard';
+import Message from './components/pages/Message';
+import Shop from './components/pages/Shop';
 //import UserContext from '../src/components/context/User';
 
 class App extends Component {
@@ -18,6 +21,10 @@ class App extends Component {
           <Route path="/register" element={<Register/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/about" element={<About/>}/>
+          <Route path="/enroll" element={<Enroll/>}/>
+          <Route path="/leaderboard" element={<Leaderboard/>}/>
+          <Route path="/message" element={<Message/>}/>
+          <Route path="/shop" element={<Shop/>}/>
         </Routes>
       </Router>
     );
