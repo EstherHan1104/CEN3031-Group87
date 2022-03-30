@@ -1,0 +1,27 @@
+.bg-dark {
+    background-color: rgba(0, 0, 0, 0.3); 
+    margin: 0 auto;
+    width: 770px;
+    height: 680px;
+    margin-top: 230px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.about {
+    padding-top: 4%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.about-title {
+    text-align: center;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.aboutpg {
+    font-size: '25px';
+    color: 'white';
+}

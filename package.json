@@ -1,0 +1,28 @@
+{
+  "name": "smartypants",
+  "version": "1.0.0",
+  "description": "smarty pants app",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server/server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "client": "cd client && npm start",
+  "backend": "cd server && nodemon server.js",
+  "dev": "concurrently \"npm run backend\" \"npm run client\"",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EstherHan1104/CEN3031-Group87.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EstherHan1104/CEN3031-Group87/issues"
+  },
+  "homepage": "https://github.com/EstherHan1104/CEN3031-Group87#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
