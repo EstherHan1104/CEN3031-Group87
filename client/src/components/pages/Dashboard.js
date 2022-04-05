@@ -28,7 +28,7 @@ const Dashboard = () => {
                     .then(res => console.log(res.data))
             }
         }
-    })
+    });
 
   return (
     <div className="main">

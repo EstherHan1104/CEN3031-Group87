@@ -3,7 +3,10 @@ const Course = require('../models/Course');
 
 // post request to find 
 router.route('/').post((req, res) => {
-    
+    Course.findById(req.body._id)
+        .then(course => {
+            res.json({ course: course });
+        })
 });
 
 // post request to add

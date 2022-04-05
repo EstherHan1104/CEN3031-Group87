@@ -10,7 +10,7 @@ router.route('/').post((req, res) => {
             if (course) {
                 User.findOneAndUpdate(
                     { email: req.body.email },
-                    { $push: { courses: course._id }}, 
+                    { $push: { courses: course }}, 
                     { new: true }          
                 )
                     .then(res.json({ success: true }));

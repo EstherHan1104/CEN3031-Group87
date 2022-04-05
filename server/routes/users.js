@@ -13,7 +13,21 @@ router.route('/').post((req, res) => {
                     password: req.body.password
                 },  'jwtsecret')
 
-                res.json({ success: true , user: token});
+                res.json({ success: true, user: token, isTeacher: user.isTeacher});
+            }
+            else {
+                res.json({ success: false});
+            }
+        })
+        .catch(err => console.error(`Failed to find: ${err}`));
+        
+});
+
+router.route('/display').post((req, res) => {
+    User.findOne({ email: req.body.email })
+        .then(user => { 
+            if (user) {            
+                res.json({ success: true, isTeacher: user.isTeacher, courses: user.courses});
             }
             else {
                 res.json({ success: false});
