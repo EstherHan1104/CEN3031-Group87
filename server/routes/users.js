@@ -13,7 +13,8 @@ router.route('/').post((req, res) => {
                     password: req.body.password
                 },  'jwtsecret')
 
-                res.json({ success: true, user: token, isTeacher: user.isTeacher});
+                res.json({  success: true, user: token, isTeacher: user.isTeacher, 
+                            firstName: user.firstName, lastName: user.lastName  });
             }
             else {
                 res.json({ success: false});

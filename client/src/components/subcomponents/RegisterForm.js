@@ -50,7 +50,6 @@ export default class RegisterForm extends Component {
         axios.post('http://localhost:5000/users/add', user) 
             .then(res => {
                 // assign error status
-               
                 this.setState({ error: res.data.error })
                  
                 if (!this.state.error) {

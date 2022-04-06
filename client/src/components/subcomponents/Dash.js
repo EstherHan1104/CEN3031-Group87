@@ -16,7 +16,13 @@ const Dash = () => {
   return (
     <div>
       <div>
-        {data.courses.map(course => {
+        {data.courses.length === 0 
+        ? <div className="message">
+            {localStorage.getItem('isTeacher') === 'true'
+            ? <h1>You have not created any courses.</h1>
+            : <h1>You are not enrolled in any courses.</h1>}
+          </div>
+        : data.courses.map(course => {
           return (
             <div className="course">
               <Link className="course-title" to={`/courses/${course._id}`}>

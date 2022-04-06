@@ -43,7 +43,9 @@ export default class CreateForm extends Component {
 
         const course = {
             courseName: this.state.courseName,
-            qna: this.state.qna
+            qna: this.state.qna,
+            firstName: localStorage.getItem('firstName'),
+            lastName: localStorage.getItem('lastName')
         }
 
         // send request to db
@@ -55,9 +57,17 @@ export default class CreateForm extends Component {
                 console.log(err);
             });    
 
-        axios.post('http://localhost:5000/enroll', {courseName: this.state.courseName, email: localStorage.getItem('email')}) 
+        axios.post('http://localhost:5000/enroll', {
+            courseName: this.state.courseName,
+            email: localStorage.getItem('email'),
+            firstName: localStorage.getItem('firstName'),
+            lastName: localStorage.getItem('lastName')
+        }) 
             .then(res => {
                 console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
             }); 
             
         document.getElementById("courseName").value = '';
