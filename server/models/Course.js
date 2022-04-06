@@ -3,11 +3,15 @@ const mongoose = require("mongoose");
 // Course model
 const CourseSchema = new mongoose.Schema
 ({
-    name: {
+    courseName: {
         type: String,
         required: true,
         trim: true
     },
+    qna: {
+        type: Object,
+        required: true
+    }
 });
 
 const Course = mongoose.model("courses", CourseSchema);

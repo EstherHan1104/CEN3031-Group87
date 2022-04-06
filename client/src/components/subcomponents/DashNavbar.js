@@ -14,7 +14,7 @@ export default class DashNavbar extends Component {
     addCourse = () => {
         return (
             this.state.isTeacher === 'true'
-            ? <Link className="text" to="/addcourse"><button className="btn-2">Create</button></Link>
+            ? <Link className="text" to="/create"><button className="btn-2">Create</button></Link>
             : <Link className="text"to="/enroll"><button className="btn-2">Enroll</button></Link>
         )
     }

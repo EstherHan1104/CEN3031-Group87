@@ -90,23 +90,23 @@ export default class RegisterForm extends Component {
     render() {
         return (
             <div className="form">
-            <h1 id="logintitle">Register</h1><br/>
+            <h1 className="logintitle">Register</h1><br/>
             {<this.ErrorMessage/>}
             <form onSubmit={this.onSubmit}>
                 <div>
-                    <input type="text" name="firstName" placeholder="First Name" id="inputboxinline1"
+                    <input type="text" name="firstName" placeholder="First Name" className="inputboxinline1"
                     onChange={this.onChange}/>
-                    <input type="text" name="lastName" placeholder="Last Name" id="inputboxinline2"
+                    <input type="text" name="lastName" placeholder="Last Name" className="inputboxinline2"
                     onChange={this.onChange}/>
                 </div>
                 <br/>
-                <input type="text" name="username" placeholder="Username" id="inputbox1"
+                <input type="text" name="username" placeholder="Username" className="inputbox1"
                 onChange={this.onChange}/>
                 <br/><br/>
-                <input type="text" name="email" placeholder="Email" id="inputbox2"
+                <input type="text" name="email" placeholder="Email" className="inputbox2"
                 onChange={this.onChange}/>
                 <br/><br/>
-                <input type="password" name="password" placeholder="Password" id="inputbox3"
+                <input type="password" name="password" placeholder="Password" className="inputbox3"
                 onChange={this.onChange}/>
                 <br/><br/>
                 <input type="checkbox" onClick={this.onClick}/>    

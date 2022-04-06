@@ -1,5 +1,7 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import '../../css/Dash.css';
 
 const Dash = () => {
   const [data, setData] = useState({ courses: [] });
@@ -13,13 +15,17 @@ const Dash = () => {
 
   return (
     <div>
-      {data.courses.map(course => {
-        return (
-          <div>
-            <h1>{course.name}</h1>
-          </div>
-        )
-      })}
+      <div>
+        {data.courses.map(course => {
+          return (
+            <div className="course">
+              <Link className="course-title" to={`/courses/${course._id}`}>
+                <button className="btn-3">{course.courseName}</button>
+              </Link>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }

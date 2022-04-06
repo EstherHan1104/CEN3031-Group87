@@ -61,13 +61,13 @@ export default class LoginForm extends Component {
   render() {
     return (
         <div className="form">
-            <h1 id="logintitle">Login</h1><br/>
+            <h1 className="logintitle">Login</h1><br/>
             {<this.ErrorMessage/>}
             <form onSubmit={this.onSubmit}>
-                <input type="text" name="email" placeholder="Email" id="inputbox1"
+                <input type="text" name="email" placeholder="Email" className="inputbox1"
                   onChange={this.onChange}/>
                 <br/><br/>
-                <input type="password" name="password" placeholder="Password" id="inputbox2"
+                <input type="password" name="password" placeholder="Password" className="inputbox2"
                   onChange={this.onChange}/>
                 <br/><br/><br/>
                 <Button type="submit" name="submit">Submit</Button>

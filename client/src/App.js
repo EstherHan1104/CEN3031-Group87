@@ -5,11 +5,11 @@ import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Dashboard from './components/pages/Dashboard';
 import Enroll from './components/pages/Enroll';
+import Create from './components/pages/Create';
 import About from './components/pages/About';
 import Leaderboard from './components/pages/Leaderboard';
 import Message from './components/pages/Message';
 import Shop from './components/pages/Shop';
-//import UserContext from '../src/components/context/User';
 
 class App extends Component {
   render() {
@@ -20,8 +20,9 @@ class App extends Component {
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
-          <Route path="/about" element={<About/>}/>
           <Route path="/enroll" element={<Enroll/>}/>
+          <Route path="/create" element={<Create/>}/>
+          <Route path="/about" element={<About/>}/>
           <Route path="/leaderboard" element={<Leaderboard/>}/>
           <Route path="/message" element={<Message/>}/>
           <Route path="/shop" element={<Shop/>}/>

@@ -1,0 +1,33 @@
+.course {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 300px;
+    color:white;
+    width: 400px;
+    height: 300px;
+    border-radius: 5%;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.course-title {
+    color: white;
+    text-decoration: none;
+    font-size: 34px;
+}
+
+.btn-3 {
+    color: rgb(255, 255, 255);
+    width: 400px;
+    height: 300px;
+    font-size: 34px;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-3:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

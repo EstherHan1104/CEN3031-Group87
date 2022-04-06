@@ -11,9 +11,10 @@ router.route('/').post((req, res) => {
 
 // post request to add
 router.route('/add').post((req, res) => {
-    const name = req.body.name;
+    const courseName = req.body.courseName;
+    const qna = req.body.qna;
     
-    const newCourse = new Course({ name });
+    const newCourse = new Course({ courseName, qna });
 
     newCourse.save()
         .then(() => res.json({ success: true }))

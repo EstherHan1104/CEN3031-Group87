@@ -1,11 +1,10 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const Course = require('../models/Course');
-const { db } = require('../models/Course');
 
 // post request to add
 router.route('/').post((req, res) => {
-    Course.findOne({ name: req.body.name })
+    Course.findOne({ courseName: req.body.courseName })
         .then(course => {
             if (course) {
                 User.findOneAndUpdate(

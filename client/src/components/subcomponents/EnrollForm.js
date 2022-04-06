@@ -9,7 +9,7 @@ export default class EnrollForm extends Component {
         super(props);
 
         this.state = {
-            name: ''
+            courseName: ''
         }
         
         this.onChange = this.onChange.bind(this);
@@ -26,21 +26,24 @@ export default class EnrollForm extends Component {
         //const user = useContext(UserContext);
 
         // send request to db
-        axios.post('http://localhost:5000/enroll/', 
-                    {name: this.state.name, email: localStorage.getItem('email')}) 
+        axios.post('http://localhost:5000/enroll', 
+                    {courseName: this.state.courseName, email: localStorage.getItem('email')}) 
             .then(res => {
                 console.log(res.data);
-            });        
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }   
 
     render() {
         return (
             <div>
                 <div className="form">
-                    <h1 id="logintitle">Enroll</h1>
+                    <h1 className="logintitle">Enroll</h1>
                     <br/><br/>
                     <form onSubmit={this.onSubmit}>
-                        <input type="text" name="name" placeholder="Course Name" id="inputbox1"
+                        <input type="text" name="courseName" placeholder="Course Name" className="inputbox1"
                         onChange={this.onChange}/>
                         <br/><br/><br/>
                         <div style={{paddingTop: '10px'}}>
