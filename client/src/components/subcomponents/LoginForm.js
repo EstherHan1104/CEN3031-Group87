@@ -62,23 +62,23 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-        <div className="form">
-            <h1 className="logintitle">Login</h1><br/>
-            {<this.ErrorMessage/>}
-            <form onSubmit={this.onSubmit}>
-                <input type="text" name="email" placeholder="Email" className="inputbox1"
-                  onChange={this.onChange}/>
-                <br/><br/>
-                <input type="password" name="password" placeholder="Password" className="inputbox2"
-                  onChange={this.onChange}/>
-                <br/><br/><br/>
-                <Button type="submit" name="submit">Submit</Button>
-            </form>
-            <div className="form-register">
-              <p className="inline" style={{color: 'white'}}>Don't have an account? </p>
-              <Link to="/register" className="inline" style={{color: '#00FFFF'}}>Sign up</Link>
-            </div>
-        </div>
+      <div className="form">
+          <h1 className="logintitle">Login</h1><br/>
+          {<this.ErrorMessage/>}
+          <form onSubmit={this.onSubmit}>
+              <input type="text" name="email" placeholder="Email" className="inputbox1"
+                onChange={this.onChange}/>
+              <br/><br/>
+              <input type="password" name="password" placeholder="Password" className="inputbox2"
+                onChange={this.onChange}/>
+              <br/><br/><br/>
+              <Button type="submit" name="submit">Submit</Button>
+          </form>
+          <div className="form-register">
+            <p className="inline" style={{color: 'white'}}>Don't have an account? </p>
+            <Link to="/register" className="inline" style={{color: '#00FFFF'}}>Sign up</Link>
+          </div>
+      </div>
     )
   }
 }

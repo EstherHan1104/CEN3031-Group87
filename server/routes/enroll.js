@@ -9,6 +9,7 @@ router.route('/').post((req, res) => {
         firstName: req.body.firstName, 
         lastName: req.body.lastName })
             .then(course => {
+                console.log(course);
                 if (course) {
                     User.findOneAndUpdate(
                         { email: req.body.email },

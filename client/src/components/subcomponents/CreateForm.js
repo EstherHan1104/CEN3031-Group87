@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Button } from './Button';
+import '../../css/Create.css';
 
 export default class CreateForm extends Component {
     constructor(props) {
@@ -8,44 +9,56 @@ export default class CreateForm extends Component {
 
         this.state = {
             courseName: '',
-            qna: {},
-            question: '',
-            answer: '',
+            modules: [],
             numAdded: 0
         };
 
-        this.onChange = this.onChange.bind(this);
-        this.onClick = this.onClick.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
+    // onChange(e) {
+    //     this.setState({ [e.target.name]: e.target.value });
+    // }
+
+    handleChange = (name) => e => {
+        this.setState({
+            [name]: e.target.value
+        })
     }
 
-    onClick() {
-        // update qna dictionary and increment numAdded
-        this.setState({
-            qna: {
-                ...this.state.qna,
-                [this.state.question]: this.state.answer
-            },
-            numAdded: this.state.numAdded + 1
-        })
+    addQA = (question, answer, index) => e => {
+        let modules = [...this.state.modules];
 
-        // empty input fields
-        document.getElementById("question").value = '';
-        document.getElementById("answer").value = '';
+        let item = {...this.state.modules[index][this.state[index]]};
+        item[this.state[question]] = this.state[answer];
+
+        modules[index][this.state[index]] = item;
+
+        this.setState({ modules: modules});
+
+        document.getElementById(question).value = '';
+        document.getElementById(answer).value = '';
+    }
+
+    addModule = (e, index) => {
+        this.setState({
+            modules: [
+                ...this.state.modules,
+                {[this.state[index]]: {}}
+            ]
+        });
+
+        document.getElementById(index).value = '';
     }
 
     onSubmit(e) {
         e.preventDefault();
-
+        
         const course = {
             courseName: this.state.courseName,
-            qna: this.state.qna,
             firstName: localStorage.getItem('firstName'),
-            lastName: localStorage.getItem('lastName')
+            lastName: localStorage.getItem('lastName'),
+            modules: this.state.modules
         }
 
         // send request to db
@@ -69,50 +82,85 @@ export default class CreateForm extends Component {
             .catch(err => {
                 console.log(err);
             }); 
-            
-        document.getElementById("courseName").value = '';
-        document.getElementById("question").value = '';
-        document.getElementById("answer").value = '';
     }
 
-    successMessage() {
-        if (this.state.numAdded > 0) {
-            return (
-                <div>
-                    <h4 style={{color: 'white'}}>
-                        {this.state.numAdded} question(s) added successfully!
-                    </h4>
-                    <br/>
+    // successMessage() {
+    //     if (this.state.numAdded > 0) {
+    //         return (
+    //             <div>
+    //                 <h4 style={{color: 'white'}}>
+    //                     {this.state.numAdded} question(s) added successfully!
+    //                 </h4>
+    //                 <br/>
+    //             </div>
+    //         )
+    //     }
+
+    //     return null;
+    // }
+
+    renderModules() {
+        let elements = [];
+        for (let i = 0; i < this.state.modules.length; i++) {
+            let question = "question" + i;
+            let answer = "answer" + i;
+
+            elements.push(
+                <div key={i}>
+                    <div className="module">
+                        <h1>Module {i + 1}:</h1>
+                        <h2>{this.state[i]}</h2><br/>
+                        <h3 style={{color: 'white'}}>Add Question/Answer Pair</h3><br/>                      
+                        <input type="text" name="question" id={question} placeholder="Question" className="inputbox2"
+                            onChange={this.handleChange(question)}/>
+                        <br/><br/>
+                        <input type="text" name="answer" id={answer} placeholder="Answer" className="inputbox2"
+                            onChange={this.handleChange(answer)}/>
+                        <br/><br/>
+                        <Button type="button" onClick={this.addQA(question, answer, i)}>Add</Button>
+                    </div>
                 </div>
             )
         }
 
-        return null;
+        return elements;
     }
 
     render() {
-        return (
-            <div>
-                <div className="form">
-                    <h1 className="logintitle">Create Course</h1><br/>
-                    <form onSubmit={this.onSubmit}>
-                        <input type="text" name="courseName" id="courseName" placeholder="Course Name" className="inputbox1"
-                            onChange={this.onChange}/>
-                        <br/><br/>
-                        <h3 style={{color: 'white'}}>Add Question/Answer Pair</h3><br/>
-                        {this.successMessage()}
-                        <input type="text" name="question" id="question" placeholder="Question" className="inputbox2"
-                            onChange={this.onChange}/>
-                        <br/><br/>
-                        <input type="text" name="answer" id="answer" placeholder="Answer" className="inputbox2"
-                            onChange={this.onChange}/>
-                        <br/><br/>
-                        <Button type="button" onClick={this.onClick}>Add</Button>
-                        <br/><br/><br/>
-                        <Button type="submit" name="submit">Create</Button>
-                    </form>
+        return (              
+            <div className="create-bg">
+                <div>          
+                    <div className="create-form">
+                        <h1 className="logintitle">Create Course</h1>
+                        <br/>
+                        <input  type="text" name="courseName" id="courseName" placeholder="Course Name" 
+                                className="inputbox1" onChange={this.handleChange("courseName")}/>
+                    </div>
+                    <div style={{textAlign: 'center', marginTop: '15px'}}>
+                        <div className="mod-name-bg">
+                            <input  type="text" name="modName" id={this.state.modules.length} placeholder="Module Name" 
+                                className="inputbox1" onChange={this.handleChange(this.state.modules.length)}/>
+                        </div>
+                        <br/>
+                        <Button onClick={(e) => this.addModule(e, this.state.modules.length) }>
+                            Add Module
+                        </Button>
+                    </div>
                 </div>
-            </div>
+                {this.state.modules.length === 0
+                ?   <div className="msg">
+                        <h1>Please add a module.</h1>
+                    </div>
+                :   
+                    <form onSubmit={this.onSubmit}>
+                        <div className="container">                                  
+                            {this.renderModules()}                                                       
+                        </div><br/><br/>
+                        <div className="create-button">
+                            <Button type="submit" name="submit">Create</Button>
+                        </div>
+                    </form>}
+            </div> 
         )
     }
 }

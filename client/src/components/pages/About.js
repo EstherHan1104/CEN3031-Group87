@@ -6,7 +6,7 @@ import AboutText from '../subcomponents/AboutText';
 export default class About extends Component {
   render() {
     return (
-      <div className="main">
+      <div>
         <LoginNavbar/>
         <AboutText/>
       </div>

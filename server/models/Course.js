@@ -18,10 +18,10 @@ const CourseSchema = new mongoose.Schema
         required: true,
         trim: true
     },
-    qna: {
+    modules: [{
         type: Object,
         required: true
-    }
+    }]
 });
 
 const Course = mongoose.model("courses", CourseSchema);

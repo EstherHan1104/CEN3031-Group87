@@ -1,0 +1,94 @@
+.create-bg {
+    background-image: url('../images/loginbackground.jpg');
+    background-size: cover;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.create-form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+div.create-form {
+    display: block;
+    text-align: center;
+    width: 500px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.mod-name-bg {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+div.mod-name-bg {
+    display: block;
+    text-align: center;
+    width: 320px;
+}
+
+.module {
+    color: white;
+}
+
+div.module {
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.container > div {
+    display: inline-block;
+    display: -moz-inline-box;
+    *display: inline;
+    zoom: 1;
+    width: 33%;
+    text-align: center;
+}
+
+.msg {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+}
+
+div.msg {
+    display: block;
+    text-align: center;
+    width: 400px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.create-button {
+   text-align: center;
+   padding-bottom: 30px;
+}
