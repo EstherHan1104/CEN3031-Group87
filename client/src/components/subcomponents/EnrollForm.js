@@ -42,6 +42,11 @@ export default class EnrollForm extends Component {
             .catch(err => {
                 console.log(err);
             });
+
+        document.getElementById("courseName").value = '';
+        document.getElementById("firstName").value = '';
+        document.getElementById("lastName").value = '';
+
     }   
 
     render() {
@@ -51,12 +56,10 @@ export default class EnrollForm extends Component {
                     <h1 className="logintitle">Enroll</h1>
                     {this.state.success 
                     ? <div>
-                        <br/>
                         <h4 style={{color: 'white'}}>Successfully enrolled in '{this.state.courseName}'!</h4>
                         <br/>
                       </div>
                     : null}
-                    <br/>
                     <form onSubmit={this.onSubmit}>
                         <input type="text" name="courseName" placeholder="Course Name" className="inputbox1"
                         onChange={this.onChange}/>

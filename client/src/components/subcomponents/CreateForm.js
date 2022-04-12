@@ -108,7 +108,7 @@ export default class CreateForm extends Component {
             elements.push(
                 <div key={i}>
                     <div className="module">
-                        <h1>Module {i + 1}:</h1>
+                        <h2>Module {i + 1}:</h2>
                         <h2>{this.state[i]}</h2><br/>
                         <h3 style={{color: 'white'}}>Add Question/Answer Pair</h3><br/>                      
                         <input type="text" name="question" id={question} placeholder="Question" className="inputbox2"
@@ -133,8 +133,11 @@ export default class CreateForm extends Component {
                     <div className="create-form">
                         <h1 className="logintitle">Create Course</h1>
                         <br/>
-                        <input  type="text" name="courseName" id="courseName" placeholder="Course Name" 
+                        <div className="coursename-bg">
+                            <input  type="text" name="courseName" id="courseName" placeholder="Course Name" 
                                 className="inputbox1" onChange={this.handleChange("courseName")}/>
+                        </div>
+                        
                     </div>
                     <div style={{textAlign: 'center', marginTop: '15px'}}>
                         <div className="mod-name-bg">
