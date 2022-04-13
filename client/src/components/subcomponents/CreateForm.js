@@ -10,15 +10,11 @@ export default class CreateForm extends Component {
         this.state = {
             courseName: '',
             modules: [],
-            numAdded: 0
+            numsAdded: []
         };
 
         this.onSubmit = this.onSubmit.bind(this);
     }
-
-    // onChange(e) {
-    //     this.setState({ [e.target.name]: e.target.value });
-    // }
 
     handleChange = (name) => e => {
         this.setState({
@@ -27,14 +23,22 @@ export default class CreateForm extends Component {
     }
 
     addQA = (question, answer, index) => e => {
-        let modules = [...this.state.modules];
+        // copy
+        let modulesC = [...this.state.modules];
+        let numsAddedC = [...this.state.numsAdded];
 
+        // update
         let item = {...this.state.modules[index][this.state[index]]};
         item[this.state[question]] = this.state[answer];
+        numsAddedC[index] = numsAddedC[index] + 1;
 
-        modules[index][this.state[index]] = item;
+        // assign
+        modulesC[index][this.state[index]] = item;
 
-        this.setState({ modules: modules});
+        this.setState({ 
+            modules: modulesC, 
+            numsAdded: numsAddedC
+        });
 
         document.getElementById(question).value = '';
         document.getElementById(answer).value = '';
@@ -45,6 +49,10 @@ export default class CreateForm extends Component {
             modules: [
                 ...this.state.modules,
                 {[this.state[index]]: {}}
+            ],
+            numsAdded: [
+                ...this.state.numsAdded,
+                0
             ]
         });
 
@@ -84,20 +92,22 @@ export default class CreateForm extends Component {
             }); 
     }
 
-    // successMessage() {
-    //     if (this.state.numAdded > 0) {
-    //         return (
-    //             <div>
-    //                 <h4 style={{color: 'white'}}>
-    //                     {this.state.numAdded} question(s) added successfully!
-    //                 </h4>
-    //                 <br/>
-    //             </div>
-    //         )
-    //     }
+    successMessage = (index) => {
+        console.log(this.state.numsAdded[index]);
 
-    //     return null;
-    // }
+        if (this.state.numsAdded[index] > 0) {
+            return (
+                <div>
+                    <h4 style={{color: 'white'}}>
+                        {this.state.numsAdded[index]} question(s) added successfully!
+                    </h4>
+                    <br/>
+                </div>
+            )
+        }
+
+        return null;
+    }
 
     renderModules() {
         let elements = [];
@@ -110,6 +120,7 @@ export default class CreateForm extends Component {
                     <div className="module">
                         <h2>Module {i + 1}:</h2>
                         <h2>{this.state[i]}</h2><br/>
+                        {this.successMessage(i)}
                         <h3 style={{color: 'white'}}>Add Question/Answer Pair</h3><br/>                      
                         <input type="text" name="question" id={question} placeholder="Question" className="inputbox2"
                             onChange={this.handleChange(question)}/>
