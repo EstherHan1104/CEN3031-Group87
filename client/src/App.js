@@ -11,6 +11,7 @@ import About from './components/pages/About';
 import Leaderboard from './components/pages/Leaderboard';
 import Message from './components/pages/Message';
 import Shop from './components/pages/Shop';
+import Profile from './components/pages/Profile';
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route path="/leaderboard" element={<Leaderboard/>}/>
           <Route path="/message" element={<Message/>}/>
           <Route path="/shop" element={<Shop/>}/>
+          <Route path="/profile" element={<Profile/>}/>
         </Routes>
       </Router>
       </div>

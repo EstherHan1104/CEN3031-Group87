@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import default_profile from '../../images/default_profile.jpg';
 import '../../css/DashNavbar.css';
 
 export default class DashNavbar extends Component {
@@ -35,6 +36,11 @@ export default class DashNavbar extends Component {
                     <button className="btn-2">Shop</button>
                 </Link>
                 {this.addCourse()}
+                <Link className = "text" to= "/Profile">
+                    <div className = "default_pro">
+                        <img src = {default_profile} alt = "profile"></img>
+                    </div>
+                </Link>
             </div>
         )
   }
