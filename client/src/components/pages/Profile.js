@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { decodeToken } from 'react-jwt';
 import axios from 'axios';
 import '../../css/DashNavbar.css';
+import DashNavbar from '../subcomponents/DashNavbar';
 import ProfileForm from '../subcomponents/ProfileForm';
 
 const Profile = () => {
@@ -32,7 +33,8 @@ const Profile = () => {
 
   return (
     <div>
-          <ProfileForm/>
+        <DashNavbar/>
+        <ProfileForm/>
     </div>
   )
 }

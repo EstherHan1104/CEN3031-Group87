@@ -24,11 +24,11 @@ router.route('/').post((req, res) => {
         
 });
 
-router.route('/display').post((req, res) => {
+router.route('/find').post((req, res) => {
     User.findOne({ email: req.body.email })
         .then(user => { 
             if (user) {            
-                res.json({ success: true, isTeacher: user.isTeacher, courses: user.courses});
+                res.json({ success: true, isTeacher: user.isTeacher, courses: user.courses, user: user});
             }
             else {
                 res.json({ success: false});
@@ -37,6 +37,16 @@ router.route('/display').post((req, res) => {
         .catch(err => console.error(`Failed to find: ${err}`));
         
 });
+
+// put request to update
+router.route('/update').post((req, res) => {
+    User.findOneAndUpdate(
+        { email: req.body.email },
+        { $set: { [req.body.update]: req.body.newValue } },
+        { new: true}
+    )
+     .then(newUser => { res.json({ success: true}) })
+})
 
 // post request to add
 router.route('/add').post((req, res) => {

@@ -4,23 +4,26 @@
     height: 100vh;
 }
 
+.form {
+    display: block;
+    text-align: center;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.3)
+}
+
 div.form {
     display: block;
     text-align: center;
-    padding-top: 40px;
-    padding-bottom: 70px;
     width: 500px;
-    margin-top: 250px;
-    border-radius: 10px;
-}
-
-.form {
-    display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
-    background: transparent;
-    background-color: rgba(0, 0, 0, 0.3)
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 40px;
+    padding-bottom: 70px;
+    border-radius: 10px;
 }
 
 .logintitle {
