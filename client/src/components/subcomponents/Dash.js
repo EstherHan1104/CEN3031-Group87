@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import { Link } from 'react-router-dom';
 import Todo from './Todo';
 import axios from 'axios';
 import '../../css/Dash.css';
@@ -9,45 +8,35 @@ const Dash = () => {
   const [data, setData] = useState({ courses: [] });
   
   useEffect(async () => {
-    const result = await axios.post('http://localhost:5000/users/display', 
+    const result = await axios.post('http://localhost:5000/users/find', 
                                     {email: localStorage.getItem('email')});
 
     setData(result.data);
   });
 
+  function renderModules() {
+    let elements = [];
+    for (let i = 0; i < data.courses.length; i++) {
+        elements.push( 
+          <Todo courseName={data.courses[i].courseName} _id={data.courses[i]._id}/>   
+        )
+    }
+
+    return elements;
+  }
+
   return (
-    <div className="main">
-       <div>
+    <div>
+      <div className="dash-bg">
          {data.courses.length === 0 
         ? null
-        : data.courses.map((course, index) => {
-          return (
-            <div id="layout" key={index}>
-              <Todo courseName={course.courseName} _id={course._id}/>
-            </div>
-          )
-        })}
+        : <div className="container">
+            {renderModules()}
+          </div>
+        }
       </div>
     </div>
   )
-
-  // return (
-  //   <div className="main">
-  //     <div>
-  //       {data.courses.length === 0 
-  //       ? null
-  //       : data.courses.map((course, index) => {
-  //         return (
-  //           <div className="course" key={index}>
-  //             <Link className="course-title" to={`/courses/${course._id}`}>
-  //               <button className="btn-3" onClick={() => onClick(course._id)}>{course.courseName}</button>
-  //             </Link>
-  //           </div>
-  //         )
-  //       })}
-  //     </div>
-  //   </div>
-  // )
 }
 
 export default Dash;

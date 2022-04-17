@@ -72,24 +72,23 @@ export default class CreateForm extends Component {
         // send request to db
         axios.post('http://localhost:5000/courses/add', course)
             .then(res => {
-                console.log(res.data);
+                axios.post('http://localhost:5000/enroll', {
+                courseName: this.state.courseName,
+                email: localStorage.getItem('email'),
+                firstName: localStorage.getItem('firstName'),
+                lastName: localStorage.getItem('lastName')
+            }) 
+                .then(res => {
+                    console.log(res.data);
+                    window.location = '/dashboard';
+                })
+                .catch(err => {
+                    console.log(err);
+                }); 
             })
             .catch(err => {
                 console.log(err);
             });    
-
-        axios.post('http://localhost:5000/enroll', {
-            courseName: this.state.courseName,
-            email: localStorage.getItem('email'),
-            firstName: localStorage.getItem('firstName'),
-            lastName: localStorage.getItem('lastName')
-        }) 
-            .then(res => {
-                console.log(res.data);
-            })
-            .catch(err => {
-                console.log(err);
-            }); 
     }
 
     successMessage = (index) => {

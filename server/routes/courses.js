@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Course = require('../models/Course');
+const User = require('../models/User');
 
 // post request to find 
 router.route('/').post((req, res) => {

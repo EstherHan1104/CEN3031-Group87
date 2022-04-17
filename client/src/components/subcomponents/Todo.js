@@ -9,6 +9,7 @@ const Todo = (props) => {
     }
 
     return (
+    <div>
       <div className="class">
           <h2>{props.courseName}</h2>
           <div className="class-image">
@@ -19,6 +20,7 @@ const Todo = (props) => {
             </div>
           </div>
       </div>
+    </div>
     );
 }
 

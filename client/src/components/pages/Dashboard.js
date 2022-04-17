@@ -31,7 +31,7 @@ const Dashboard = () => {
     });
 
   return (
-    <div>
+    <div className="main">
         <DashNavbar/>
         <Dash/>
     </div>

@@ -6,7 +6,6 @@ div.profile-form {
     width: 700px; 
     border-radius: 10px;
     position: absolute;
-
     top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -16,8 +15,13 @@ div.profile-form {
     display: block;
     text-align: center;
     background: transparent;
-    background-color: rgba(0, 0, 0, 0.3)
+    background-color: rgba(0, 0, 0, 0.3);
 }
+
+.line {
+    padding-top: 15px;
+}
+
 .title
 {
     color:rgb(251, 244, 238);
@@ -112,6 +116,5 @@ div.profile-form {
     border-style: hidden;
     border-radius: 10px;
     opacity: 0.75;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-left: 15px;
 }
