@@ -38,7 +38,7 @@ router.route('/find').post((req, res) => {
         
 });
 
-// put request to update
+// post request to update
 router.route('/update').post((req, res) => {
     User.findOneAndUpdate(
         { email: req.body.email },
