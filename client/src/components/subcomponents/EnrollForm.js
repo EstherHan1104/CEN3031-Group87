@@ -34,7 +34,7 @@ export default class EnrollForm extends Component {
         }
 
         // send request to db
-        axios.post('http://localhost:5000/enroll', course) 
+        axios.post('https://smartypants-project.herokuapp.com/enroll', course) 
             .then(res => {
                 console.log(res.data);
                 this.setState({ success: true })
@@ -61,14 +61,14 @@ export default class EnrollForm extends Component {
                       </div>
                     : null}
                     <form onSubmit={this.onSubmit}>
-                        <input type="text" name="courseName" placeholder="Course Name" className="inputbox1"
+                        <input type="text" name="courseName" id="courseName" placeholder="Course Name" className="inputbox1"
                         onChange={this.onChange}/>
                         <br/><br/>
                         <h3 style={{color: 'white'}}>Teacher's name:</h3>
                         <br/>
-                        <input type="text" name="firstName" placeholder="First" className="inputboxinline1"
+                        <input type="text" name="firstName" id="firstName" placeholder="First" className="inputboxinline1"
                         onChange={this.onChange}/>
-                        <input type="text" name="lastName" placeholder="Last" className="inputboxinline2"
+                        <input type="text" name="lastName" id="lastName" placeholder="Last" className="inputboxinline2"
                         onChange={this.onChange}/>
                         <br/><br/><br/>
                         <Button type="submit" name="submit">Submit</Button>                    

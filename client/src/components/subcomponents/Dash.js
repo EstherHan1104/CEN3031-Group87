@@ -8,7 +8,7 @@ const Dash = () => {
   const [data, setData] = useState({ courses: [] });
   
   useEffect(async () => {
-    const result = await axios.post('http://localhost:5000/users/find', 
+    const result = await axios.post('https://smartypants-project.herokuapp.com/users/find', 
                                     {email: localStorage.getItem('email')});
 
     setData(result.data);

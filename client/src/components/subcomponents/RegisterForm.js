@@ -47,7 +47,7 @@ export default class RegisterForm extends Component {
         }
 
         // send request to db
-        axios.post('http://localhost:5000/users/add', user) 
+        axios.post('https://smartypants-project.herokuapp.com/users/add', user) 
             .then(res => {
                 // assign error status
                 this.setState({ error: res.data.error })

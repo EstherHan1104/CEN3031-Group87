@@ -9,7 +9,7 @@ const ProfileForm = () => {
     const [user, setUser] = useState(null); 
 
     useEffect(async () => {
-        const promise = await axios.post('http://localhost:5000/users/find', 
+        const promise = await axios.post('https://smartypants-project.herokuapp.com/users/find', 
                                         { email: localStorage.getItem('email') });
 
         const user = promise.data.user;
@@ -26,7 +26,7 @@ const ProfileForm = () => {
     }
 
     function onClick(updateVar)  {
-        axios.post('http://localhost:5000/users/update', {
+        axios.post('https://smartypants-project.herokuapp.com/users/update', {
             email: user.email,
             update: updateVar,
             newValue: state[updateVar]

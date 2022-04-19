@@ -70,9 +70,9 @@ export default class CreateForm extends Component {
         }
 
         // send request to db
-        axios.post('http://localhost:5000/courses/add', course)
+        axios.post('https://smartypants-project.herokuapp.com/courses/add', course)
             .then(res => {
-                axios.post('http://localhost:5000/enroll', {
+                axios.post('https://smartypants-project.herokuapp.com/enroll', {
                 courseName: this.state.courseName,
                 email: localStorage.getItem('email'),
                 firstName: localStorage.getItem('firstName'),

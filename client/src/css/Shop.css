@@ -1,0 +1,5 @@
+.shoppic {
+    background-image: url('../images/shop.jpg');
+    background-size: cover;
+    height: 100vh;
+}

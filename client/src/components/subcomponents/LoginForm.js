@@ -27,7 +27,7 @@ export default class LoginForm extends Component {
     e.preventDefault();
 
     // send request to db
-    axios.post('http://localhost:5000/users/', {
+    axios.post('https://smartypants-project.herokuapp.com/users/', {
       email: this.state.email,
       password: this.state.password
     })

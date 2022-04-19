@@ -3,6 +3,12 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 
+router.route('/get').get((req, res) => {
+    User.find()
+        .then(users => { res.json(users) })
+        .catch(err => console.log(err));
+})
+
 // post request to find 
 router.route('/').post((req, res) => {
     User.findOne({ email: req.body.email })
