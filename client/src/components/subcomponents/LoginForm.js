@@ -64,7 +64,7 @@ export default class LoginForm extends Component {
     return (    
       <div>
         <div className="form">
-            <h1 className="logintitle">Login</h1><br/>
+            <h1 className="logintitle">Login</h1>
             {<this.ErrorMessage/>}
             <form onSubmit={this.onSubmit}>
                 <input type="text" name="email" placeholder="Email" className="inputbox1"

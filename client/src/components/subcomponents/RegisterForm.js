@@ -88,32 +88,34 @@ export default class RegisterForm extends Component {
 
     render() {
         return (
-            <div className="form">
-            <h1 className="logintitle">Register</h1><br/>
-            {<this.ErrorMessage/>}
-            <form onSubmit={this.onSubmit}>
-                <div>
-                    <input type="text" name="firstName" placeholder="First Name" className="inputboxinline1"
-                    onChange={this.onChange}/>
-                    <input type="text" name="lastName" placeholder="Last Name" className="inputboxinline2"
-                    onChange={this.onChange}/>
+            <div>
+                <div className="form">
+                    <h1 className="logintitle">Register</h1>
+                    {<this.ErrorMessage/>}
+                    <form onSubmit={this.onSubmit}>
+                        <div>
+                            <input type="text" name="firstName" placeholder="First Name" className="inputboxinline1"
+                            onChange={this.onChange}/>
+                            <input type="text" name="lastName" placeholder="Last Name" className="inputboxinline2"
+                            onChange={this.onChange}/>
+                        </div>
+                        <br/>
+                        <input type="text" name="username" placeholder="Username" className="inputbox1"
+                        onChange={this.onChange}/>
+                        <br/><br/>
+                        <input type="text" name="email" placeholder="Email" className="inputbox2"
+                        onChange={this.onChange}/>
+                        <br/><br/>
+                        <input type="password" name="password" placeholder="Password" className="inputbox3"
+                        onChange={this.onChange}/>
+                        <br/><br/>
+                        <input type="checkbox" onClick={this.onClick}/>    
+                        <label style={{color: 'white', fontSize: '19px'}}> I am a Teacher</label>
+                        <br/><br/><br/>           
+                        <Button type="submit" name="submit">Submit</Button>
+                    </form>
                 </div>
-                <br/>
-                <input type="text" name="username" placeholder="Username" className="inputbox1"
-                onChange={this.onChange}/>
-                <br/><br/>
-                <input type="text" name="email" placeholder="Email" className="inputbox2"
-                onChange={this.onChange}/>
-                <br/><br/>
-                <input type="password" name="password" placeholder="Password" className="inputbox3"
-                onChange={this.onChange}/>
-                <br/><br/>
-                <input type="checkbox" onClick={this.onClick}/>    
-                <label style={{color: 'white', fontSize: '19px'}}> I am a Teacher</label>
-                <br/><br/><br/>           
-                <Button type="submit" name="submit">Submit</Button>
-            </form>
-        </div>
+            </div>
         )
     }
 }
