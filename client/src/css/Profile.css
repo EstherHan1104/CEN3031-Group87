@@ -1,0 +1,120 @@
+div.profile-form {
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 70px;
+    width: 700px; 
+    border-radius: 10px;
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.profile-form {
+    display: block;
+    text-align: center;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.line {
+    padding-top: 15px;
+}
+
+.title
+{
+    color:rgb(251, 244, 238);
+    font-size: 30px;
+    margin-top: -20px;
+}
+
+.text1
+{
+    color:white;
+    display:inline-block;
+    margin: auto;
+    font-size: xx-large;
+    
+}
+
+.saveButton
+{
+    font-size: 10px;
+    width: 70px;
+    height: 30px;
+    border: none;
+    color: rgb(1, 47, 92);
+    background-color: rgb(5, 179, 236);
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 0 red;
+    transition: ease-out 0.5s;
+    font-size: 1.5rem;
+    margin-left: 20px;
+    margin-top: 10px;
+    
+}
+.saveButton:hover
+{
+    box-shadow: inset 300px 0 0 0 rgb(207, 39, 30);
+    cursor: pointer;
+    color: white(0, 0, 0);
+}
+
+.saveAllButton
+{
+    font-size: 10px;
+    width: 140px;
+    height: 30px;
+    float: center;
+    margin-top: 50px;
+    border: none;
+    color: rgb(1, 47, 92);
+    background-color: rgb(5, 179, 236);
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 0 red;
+    transition: ease-out 0.5s;
+    font-size: 1.5rem;
+}
+.saveAllButton:hover
+{
+    box-shadow: inset 300px 0 0 0 rgb(207, 39, 30);
+    cursor: pointer;
+    color: white(0, 0, 0);
+}
+
+.changeButton
+{
+    font-size: 10px;
+    width: 200px;
+    height: 30px;
+    float: center;
+    margin-top: 0px;
+    border: none;
+    color: rgb(1, 47, 92);
+    background-color: rgb(5, 179, 236);
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 0 red;
+    transition: ease-out 0.5s;
+    font-size: 1.5rem;
+}
+.changeButton:hover
+{
+    box-shadow: inset 300px 0 0 0 rgb(207, 39, 30);
+    cursor: pointer;
+    color: white(0, 0, 0);
+}
+
+.inputbox 
+{
+    display: inline-block;
+    height: 35px;
+    width: 200px;
+    text-align: center;
+    background: #c8c8c8;
+    font-size: 15px;
+    border-style: hidden;
+    border-radius: 10px;
+    opacity: 0.75;
+    margin-left: 15px;
+}

@@ -27,13 +27,17 @@ export default class LoginForm extends Component {
     e.preventDefault();
 
     // send request to db
-    axios.post('http://localhost:5000/users/', {
+    axios.post('https://smartypants-project.herokuapp.com/users/', {
       email: this.state.email,
       password: this.state.password
     })
       .then(res => {   
         if (res.data.success) {
           localStorage.setItem('token', res.data.user);
+          localStorage.setItem('email', this.state.email)
+          localStorage.setItem('isTeacher', res.data.isTeacher)
+          localStorage.setItem('firstName', res.data.firstName)
+          localStorage.setItem('lastName', res.data.lastName)
           window.location = '/dashboard';
         }
         else {
@@ -57,15 +61,16 @@ export default class LoginForm extends Component {
   }
 
   render() {
-    return (
+    return (    
+      <div>
         <div className="form">
-            <h1 id="logintitle">Login</h1><br/>
+            <h1 className="logintitle">Login</h1>
             {<this.ErrorMessage/>}
             <form onSubmit={this.onSubmit}>
-                <input type="text" name="email" placeholder="Email" id="inputbox1"
+                <input type="text" name="email" placeholder="Email" className="inputbox1"
                   onChange={this.onChange}/>
                 <br/><br/>
-                <input type="password" name="password" placeholder="Password" id="inputbox2"
+                <input type="password" name="password" placeholder="Password" className="inputbox2"
                   onChange={this.onChange}/>
                 <br/><br/><br/>
                 <Button type="submit" name="submit">Submit</Button>
@@ -75,6 +80,7 @@ export default class LoginForm extends Component {
               <Link to="/register" className="inline" style={{color: '#00FFFF'}}>Sign up</Link>
             </div>
         </div>
+      </div>    
     )
   }
 }

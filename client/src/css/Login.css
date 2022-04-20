@@ -4,31 +4,31 @@
     height: 100vh;
 }
 
-div.form {
+.form {
     display: block;
     text-align: center;
-    padding-top: 60px;
-    padding-bottom: 70px;
-    width: 500px;
-    margin-top: 250px;
-    border-radius: 10px;
-}
-
-.form {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
     background: transparent;
     background-color: rgba(0, 0, 0, 0.3)
 }
 
-#logintitle {
+div.form {
+    display: block;
+    text-align: center;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4%;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+}
+
+.logintitle {
     padding-bottom: 10px;
     color: white;
 }
 
-#inputboxinline1 {
+.inputboxinline1 {
     display: inline-block;
     height: 50px;
     width: 145px;
@@ -42,7 +42,7 @@ div.form {
     margin-left: 5px;
 }
 
-#inputboxinline2 {
+.inputboxinline2 {
     display: inline-block;
     height: 50px;
     width: 145px;
@@ -56,7 +56,7 @@ div.form {
     margin-left: 5px;
 }
 
-#inputbox1 {
+.inputbox1 {
     height: 50px;
     width: 300px;
     text-align: center;
@@ -67,7 +67,7 @@ div.form {
     opacity: 0.75;
 }
 
-#inputbox2 {
+.inputbox2 {
     height: 50px;
     width: 300px;
     text-align: center;
@@ -78,7 +78,7 @@ div.form {
     opacity: 0.75;
 }
 
-#inputbox3 {
+.inputbox3 {
     height: 50px;
     width: 300px;
     text-align: center;

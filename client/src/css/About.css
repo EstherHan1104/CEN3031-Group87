@@ -1,16 +1,17 @@
 .bg-dark {
+    display: block;
     background-color: rgba(0, 0, 0, 0.3); 
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     width: 770px;
-    height: 680px;
-    margin-top: 230px;
+    height: 75vh;
+    margin-top: 35px;
     border-radius: 10px;
     text-align: left;
+    overflow-y: scroll;
 }
 
 .about {
-    padding-top: 4%;
-    padding-bottom: 3%;
     padding-left: 5%;
     padding-right: 5%;
 }

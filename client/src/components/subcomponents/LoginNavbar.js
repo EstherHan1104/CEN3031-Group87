@@ -19,14 +19,14 @@ class LoginNavbar extends Component {
                         return(
                             <li key={index}>
                                 <a className={item.cName} href={item.url} 
-                                 target={item.title === 'Github' ? '_blank' : ''}>
+                                target={item.title === 'Github' ? '_blank' : ''}>
                                     {item.title}    
                                 </a>
                             </li>
                         )
                     })}                 
                 </ul>
-            </nav>
+            </nav>           
         );
     }
 };

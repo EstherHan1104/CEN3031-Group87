@@ -3,10 +3,11 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { decodeToken } from 'react-jwt';
 import axios from 'axios';
+import '../../css/DashNavbar.css';
 import DashNavbar from '../subcomponents/DashNavbar';
-import Dash from '../subcomponents/Dash';
+import ProfileForm from '../subcomponents/ProfileForm';
 
-const Dashboard = () => {
+const Profile = () => {
     const history = useNavigate();
 
     useEffect(() => {
@@ -28,14 +29,14 @@ const Dashboard = () => {
                     .then(res => console.log(res.data))
             }
         }
-    });
+    })
 
   return (
-    <div className="main">
+    <div>
         <DashNavbar/>
-        <Dash/>
+        <ProfileForm/>
     </div>
   )
 }
 
-export default Dashboard;
+export default Profile;

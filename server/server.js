@@ -16,7 +16,15 @@ connection.once('open', () => {
 
 // set up routes
 const usersRouter = require('./routes/users');
+const coursesRouter = require('./routes/courses');
+const enrollRouter = require('./routes/enroll');
 app.use('/users', usersRouter);
+app.use('/courses', coursesRouter);
+app.use('/enroll', enrollRouter);
+
+app.get('/', (req, res) => {
+    res.send('Hello to SmartyPants API');
+});
 
 // listen to port
 const port = process.env.PORT || 5000;
