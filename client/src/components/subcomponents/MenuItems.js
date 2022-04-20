@@ -1,7 +1,7 @@
 export const Buttons = [
     {
         title: 'Github',
-        url: 'https://github.com/EstherHan1104/CEN3031-Group87/tree/main',
+        url: 'https://github.com/EstherHan1104/CEN3031-Group87/tree/master',
         cName: 'nav-links'
     },
     {
